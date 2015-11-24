@@ -1,0 +1,46 @@
+<!DOCTYPE>
+<html ng-app="myApp">
+<head>
+	<meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+
+	<title>To Do App</title>
+</head>
+<body>
+	<div class="container" ng-controller="AppCtrl">
+		<h1>To Do App</h1>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Task</th>
+					<th>Action</th>
+					<th>&nbsp;</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><input class="form-control" ng-model="task.description"></td>
+					<td><button class="btn btn-primary" ng-click="add()" title="Add Task"><span class="glyphicon glyphicon-plus" ></span></button></td>
+					<td><button class="btn btn-info" ng-click="update()" title="Update Task"><span class="glyphicon glyphicon-ok" ></span></button>&nbsp;&nbsp;<button class="btn btn-info" ng-click="deselect()" title="Unselect Task"><span class="glyphicon glyphicon-remove" ></span></button></td>
+				</tr>
+				<tr ng-repeat="task in tasks">
+					<td>{{task.description}}</td>
+					<td><button class="btn btn-danger" ng-click="remove(task._id)" title="Delete" ><span class="glyphicon glyphicon-trash" ></span></button></td>
+					<td><button class="btn btn-warning" ng-click="edit(task._id)" title="Edit"><span class="glyphicon glyphicon-edit" ></span></button></td>
+				</tr>
+			</tbody>
+			
+		</table>
+	</div>
+
+	<!--Libraries -->
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script type="text/javascript" src="controllers/controller.js"></script>
+</body>
+</html>
